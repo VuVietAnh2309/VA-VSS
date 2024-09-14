@@ -18,7 +18,7 @@ def load_model():
 
     model = AutoModelForCausalLM.from_pretrained(
         "anhvv200053/Vinallama-2-7B-updated1-instruction-v2",
-        # quantization_config=bnb_config,
+        quantization_config=bnb_config,
         device_map=device_map,
         token = token
     )
