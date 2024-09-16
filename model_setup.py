@@ -17,14 +17,14 @@ def load_model():
     token = os.getenv("HF_TOKEN")
 
     model = AutoModelForCausalLM.from_pretrained(
-        "anhvv200053/Vinallama-2-7B-updated1-instruction-v2",
+        "anhvv200053/Vinallama2-7b-updated3-instruction-v2",
         quantization_config=bnb_config,
         device_map=device_map,
         token = token
     )
     model.config.pretraining_tp = 1
 
-    tokenizer = AutoTokenizer.from_pretrained('anhvv200053/Vinallama-2-7B-updated1-instruction-v2', trust_remote_code=True, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained('anhvv200053/Vinallama2-7b-updated3-instruction-v2', trust_remote_code=True, use_fast=True)
     tokenizer.pad_token = tokenizer.eos_token
 
     return model, tokenizer
